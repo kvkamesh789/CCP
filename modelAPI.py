@@ -12,11 +12,8 @@ def predict():
     model = load('rfc.joblib')
     prediction = model.predict(features).tolist()
     predict_proba = model.predict_proba(features).tolist()
-    print(features)
-    print(prediction)
-    print((predict_proba)[0][0])
 
-    return {"Prediction":prediction, "Predict_proba":round((predict_proba)[0][0],2)}#'{} {}'.format(json.dumps({"Prediction":prediction}), json.dumps({"Predict_proba":(predict_proba)[0][0]}))
+    return {"QCF":95,"Prediction":prediction, "Predict_proba":round((predict_proba)[0][0],2)}
 
 if __name__ == '__main__':
       app.run(host='0.0.0.0', port=80)
